@@ -4,7 +4,9 @@
  */
 package SegundoParcialPruebas;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -14,24 +16,26 @@ import java.util.List;
 class FichaMedica {
     private List<Diagnostico> diagnosticos; //Composición
 
-    public FichaMedica(List<Diagnostico> diagnosticos) {
-        this.diagnosticos = new ArrayList<>(diagnosticos);
+    public FichaMedica(){
+        this.diagnosticos = new ArrayList<>();
     }
 
-    public List<Diagnostico> getDiagnosticos() {
-        return diagnosticos;
+    public void agregarDiagnostico(String descripcion, LocalDate fecha){
+        diagnosticos.add(new Diagnostico(descripcion, fecha));
     }
 
-    public void setDiagnosticos(List<Diagnostico> diagnosticos) {
-        this.diagnosticos = diagnosticos;
+    public boolean removerDiagnosticoPorDescripcion(String descripcion){
+        for (Diagnostico d : diagnosticos ){
+            if(d.getDescripcion().equals(descripcion)){
+                diagnosticos.remove(d);
+                return true;
+            }
+        }
+        return false;
     }
 
-    @Override
-    public String toString() {
-        return "FichaMedica{" + "diagnosticos=" + diagnosticos + '}';
+    public List getDiagnosticos(){
+        List<Diagnostico> diagnosticosCopy = Collections.unmodifiableList(this.diagnosticos);
+        return diagnosticosCopy;
     }
-    
-    
-    
-    
 }

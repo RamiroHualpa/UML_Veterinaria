@@ -5,6 +5,9 @@
 package SegundoParcialPruebas;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -16,9 +19,9 @@ class TratamientoRealizado {
     private List<Medicamento> medicamentos; //Agregación
     private LocalDate fecha;
 
-    public TratamientoRealizado(Tratamiento tratamiento, List<Medicamento> medicamentos, LocalDate fecha) {
+    public TratamientoRealizado(Tratamiento tratamiento, LocalDate fecha) {
         this.tratamiento = tratamiento;
-        this.medicamentos = medicamentos;
+        this.medicamentos = new ArrayList<>();
         this.fecha = fecha;
     }
 
@@ -26,30 +29,26 @@ class TratamientoRealizado {
         return tratamiento;
     }
 
-    public void setTratamiento(Tratamiento tratamiento) {
-        this.tratamiento = tratamiento;
-    }
-
-    public List<Medicamento> getMedicamentos() {
-        return medicamentos;
-    }
-
-    public void setMedicamentos(List<Medicamento> medicamentos) {
-        this.medicamentos = medicamentos;
-    }
-
     public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void agregarMedicamento(Medicamento medicamento){
+        if(medicamento != null && !this.medicamentos.contains(medicamento)){
+            this.medicamentos.add(medicamento);
+        }
     }
 
-    @Override
-    public String toString() {
-        return "TratamientoRealizado{" + "tratamiento=" + tratamiento + ", medicamentos=" + medicamentos + ", fecha=" + fecha + '}';
+    public boolean removerMedicamento(Medicamento medicamento){
+        if(this.medicamentos.contains(medicamento)){
+            this.medicamentos.remove(medicamento);
+            return true;
+        }
+        return false;
     }
-    
-    
+
+    public List getMedicamentos(){
+        List<Medicamento> medicamentosCopy = Collections.unmodifiableList(medicamentos);
+        return medicamentosCopy;
+    }
 }
