@@ -12,15 +12,7 @@ import java.util.List;
  */
 public class Perro extends Animal{
 
-    public Perro(String nombre, int edad, EstadoAnimal estado, List<Turno> turnos, List<Diagnostico> diagnosticos) {
-        super(nombre, edad, estado, turnos, diagnosticos);
+    public Perro(String nombre, int edad, EstadoAnimal estado, List<Turno> turnos) {
+        super(nombre, edad, estado, turnos);
     }
-
-    @Override
-    public String toString() {
-        return "Perro{" + '}';
-    }
-
-    
-    
 }
