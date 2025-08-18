@@ -8,10 +8,14 @@ public class Ejercicio04 {
         public Animal() {
             // Línea del campus:
             // this.fichaMedica = {1:MCS:=new FichaMedica()~null~FichaMedica.create()~new FichaMedica(this)};
-            this.fichaMedica = new FichaMedica(); // ✅ Correcto: se inicializa la ficha médica al crear el Animal.
-            //❌ this.fichaMedica = null;                // ❌ Compila, pero es mala práctica: dejaría la ficha sin inicializar y causaría NullPointerException al acceder a métodos.
-            // this.fichaMedica = FichaMedica.create(); // ❌ No compila: no existe un método estático create() en la clase FichaMedica.
-            // this.fichaMedica = new FichaMedica(this); // ❌ No compila: el constructor de FichaMedica no recibe parámetros (según definición dada).
+            this.fichaMedica = new FichaMedica();
+            // ✅ Correcto: se inicializa la ficha médica al crear el Animal.
+            //this.fichaMedica = null; //❌❌❌
+            // ❌ Compila, pero es mala práctica: dejaría la ficha sin inicializar y causaría NullPointerException al acceder a métodos.
+            //this.fichaMedica = FichaMedica.create();
+            // ❌ No compila: no existe un método estático create() en la clase FichaMedica.
+            // this.fichaMedica = new FichaMedica(this);
+            // ❌ No compila: el constructor de FichaMedica no recibe parámetros (según definición dada).
         }
 
         public FichaMedica getFichaMedica() {

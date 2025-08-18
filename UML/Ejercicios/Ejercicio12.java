@@ -46,10 +46,20 @@ public class Ejercicio12 {
         public void registrarYMostrar(String tipo, String detalle) {
             // Línea del campus:
             // {3:MCS:=Animal nuevoAnimal = AnimalFactory.crearAnimal(tipo, detalle);~Object nuevoAnimal = AnimalFactory.crearAnimal(tipo, detalle);~Perro nuevoAnimal = (Perro)AnimalFactory.crearAnimal(tipo, detalle);~Gato nuevoAnimal = (Gato)AnimalFactory.crearAnimal(tipo, detalle);}
-            Animal nuevoAnimal = AnimalFactory.crearAnimal(tipo, detalle); // ✅ Correcto: mantiene el polimorfismo y la seguridad de tipos para invocar métodos de Animal.
-            // Object nuevoAnimal = AnimalFactory.crearAnimal(tipo, detalle); // ❌ No compila con el uso posterior: "nuevoAnimal" sería de tipo Object y no tendría getDescripcion(); fallaría en la línea de impresión.
-            // Perro nuevoAnimal = (Perro) AnimalFactory.crearAnimal(tipo, detalle); // ⚠️ Compila, pero es incorrecto/arriesgado: si tipo="gato", se retorna Gato y el cast provocará ClassCastException en tiempo de ejecución.
-            // Gato nuevoAnimal = (Gato) AnimalFactory.crearAnimal(tipo, detalle);  // ⚠️ Compila, pero es incorrecto/arriesgado: si tipo="perro", el cast fallará con ClassCastException en tiempo de ejecución.
+
+            Animal nuevoAnimal = AnimalFactory.crearAnimal(tipo, detalle);
+            // ✅ Correcto: mantiene el polimorfismo y la seguridad de tipos para invocar métodos de Animal.
+
+            // Object nuevoAnimal = AnimalFactory.crearAnimal(tipo, detalle);
+            // ❌ No compila con el uso posterior: "nuevoAnimal" sería de tipo Object y no tendría getDescripcion();
+            // fallaría en la línea de impresión.
+
+            // Perro nuevoAnimal = (Perro) AnimalFactory.crearAnimal(tipo, detalle);
+            // ⚠️ Compila, pero es incorrecto/arriesgado: si tipo="gato", se retorna Gato y el cast provocará
+            // ClassCastException en tiempo de ejecución.
+
+            // Gato nuevoAnimal = (Gato) AnimalFactory.crearAnimal(tipo, detalle);
+            // ⚠️ Compila, pero es incorrecto/arriesgado: si tipo="perro", el cast fallará con ClassCastException en tiempo de ejecución.
 
             if (nuevoAnimal != null) {
                 // Línea del campus:

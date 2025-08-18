@@ -52,7 +52,7 @@ public class Ejercicio18 {
                 // Línea del campus:
                 // animal.{4:MCS:=setEstado(EstadoAnimal.RECUPERADO)~estado = EstadoAnimal.RECUPERADO~setEstado("RECUPERADO")~changeState(EstadoAnimal.RECUPERADO)};
                 animal.setEstado(EstadoAnimal.RECUPERADO); // ✅ Correcto: se usa el setter público para cambiar estado.
-                // animal.estado = EstadoAnimal.RECUPERADO;  // ❌ No compila: estado es privado.
+                // animal.estado = EstadoAnimal.RECUPERADO;  // ❌❌❌ No compila: estado es privado.
                 // animal.setEstado("RECUPERADO");           // ❌ No compila: setter requiere EstadoAnimal, no String.
                 // animal.changeState(EstadoAnimal.RECUPERADO); // ❌ No compila: método inexistente.
             }

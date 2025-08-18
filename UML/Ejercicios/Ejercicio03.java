@@ -17,10 +17,13 @@ public class Ejercicio03 {
 
         // Línea del campus:
         // public {1:MCS:=abstract~void~static~final} String emitirSonido();
-        public abstract String emitirSonido(); // ✅ Correcto: al ser Animal abstracto, definir un método abstracto es lo apropiado para que cada subclase lo implemente.
+        public abstract String emitirSonido(); // ✅ Correcto: al ser Animal abstracto, definir un método abstracto es
+                                                // lo apropiado para que cada subclase lo implemente.
         // public void String emitirSonido();    // ❌ No compila: "void" no puede coexistir con "String" como tipo de retorno.
-        // public static String emitirSonido();  // ❌ Compilaría, pero sería incorrecto: un método static no es polimórfico, no puede sobrescribirse en Perro y Gato, lo cual rompe el objetivo del ejercicio.
-        // public final String emitirSonido();   // ❌ Compilaría, pero sería incorrecto: un método final no puede ser sobrescrito, imposibilitando que las subclases (Perro, Gato) personalicen el sonido.
+        // public static String emitirSonido();  // ❌ Compilaría, pero sería incorrecto: un método static no es polimórfico,
+                                                //no puede sobrescribirse en Perro y Gato, lo cual rompe el objetivo del ejercicio.
+        // public final String emitirSonido();  // ❌ Compilaría, pero sería incorrecto: un método final no puede ser sobrescrito,
+                                                // imposibilitando que las subclases (Perro, Gato) personalicen el sonido.
     }
 
     public static class Perro extends Animal {
@@ -54,15 +57,19 @@ public class Ejercicio03 {
         // Línea del campus:
         // public void generarReporteDeMascotas({2:MCS:=List⟨Animal⟩~List~ArrayList~List⟨Object⟩} animales) {
         public void generarReporteDeMascotas(List<Animal> animales) { // ✅ Correcto: mantiene el tipado genérico, permite polimorfismo y seguridad de tipos.
-            // public void generarReporteDeMascotas(List animales) {       // ❌ Compilaría con warning: usa raw types, se pierde seguridad de tipos y puede causar ClassCastException en tiempo de ejecución.
-            // public void generarReporteDeMascotas(ArrayList animales) {  // ❌ Compila, pero mala práctica: rompe el principio de programar contra interfaces (List) en lugar de implementaciones concretas.
-            // public void generarReporteDeMascotas(List<Object> animales) { // ❌ Compila, pero incorrecto: no permite pasar List<Animal> porque List<Object> no es supertipo de List<Animal>, perderíamos polimorfismo.
+             //public void generarReporteDeMascotas(List animales) {
+                 // ❌ Compilaría con warning: usa raw types, se pierde seguridad de tipos y puede causar ClassCastException en tiempo de ejecución.
+            // public void generarReporteDeMascotas(ArrayList animales) {
+                 // ❌ Compila, pero mala práctica: rompe el principio de programar contra interfaces (List) en lugar de implementaciones concretas.
+            // public void generarReporteDeMascotas(List<Object> animales) {
+                 // ❌ Compila, pero incorrecto: no permite pasar List<Animal> porque List<Object> no es supertipo de List<Animal>, perderíamos polimorfismo.
 
             // Línea del campus:
             // for ({3:MCS:=Animal animal : animales~animal : animales~Object animal : animales~var animal < animales}) {
             for (Animal animal : animales) { // ✅ Correcto: recorre la lista de animales usando polimorfismo.
                 // for (animal : animales) {            // ❌ No compila: falta declarar el tipo de la variable.
-                // for (Object animal : animales) {     // ❌ Compila, pero obliga a castear "animal" a Animal en cada uso, perdiendo polimorfismo y generando posibles ClassCastException.
+                // for (Object animal : animales) {     // ❌ Compila, pero obliga a castear "animal" a Animal en cada uso,
+                                                        // perdiendo polimorfismo y generando posibles ClassCastException.
                 // for (var animal < animales) {        // ❌ No compila: la sintaxis "<" no existe para el for-each en Java.
 
                 Duenio d = animal.getDuenio();

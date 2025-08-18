@@ -28,7 +28,8 @@ public class Ejercicio02 {
             super(); // ✅ Correcto: se llama al constructor de la clase padre (Animal).
             // this();                       // ❌ Incorrecto: "this()" solo puede invocar a otro constructor de la misma clase, no aplica aquí.
             // Animal.init();                // ❌ Incorrecto: no existe un método init() en la clase Animal.
-            // super.estado = EstadoAnimal.SALUDABLE; // ❌ Incorrecto: aunque compilaría, rompe la encapsulación ya que la lógica de inicialización ya está en el constructor de Animal.
+            // super.estado = EstadoAnimal.SALUDABLE; // ❌ Incorrecto: aunque compilaría, rompe la encapsulación ya que
+                                                    // la lógica de inicialización ya está en el constructor de Animal.
             this.raza = raza;
         }
 

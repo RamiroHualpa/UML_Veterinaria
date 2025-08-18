@@ -39,7 +39,8 @@ public class Ejercicio13 {
         // public void imprimirDocumento({3:MCS:=Imprimible doc~Object doc~Turno doc~String doc}) {
         public void imprimirDocumento(Imprimible doc) { // ✅ Correcto: el servicio recibe cualquier objeto que implemente Imprimible, permitiendo polimorfismo.
             // public void imprimirDocumento(Object doc) { // ❌ No compila con el uso: Object no tiene getContenidoImpresion().
-            // public void imprimirDocumento(Turno doc) {  // ⚠️ Compila, pero rompe la generalidad: solo podría imprimir Turno, no cualquier Imprimible.
+            // public void imprimirDocumento(Turno doc) {
+                 // ⚠️ Compila, pero rompe la generalidad: solo podría imprimir Turno, no cualquier Imprimible.
             // public void imprimirDocumento(String doc) { // ❌ No compila: String no tiene getContenidoImpresion().
 
             if (doc != null) {

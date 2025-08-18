@@ -60,7 +60,8 @@ public class Ejercicio06 {
             Turno turnoPerro = new Turno(miPerro); // ✅ Correcto: pasamos la instancia de Perro (subclase de Animal).
             // Turno turnoPerro = new Turno(new Animal());     // ❌ No compila: Animal es abstracto, no puede instanciarse.
             // Turno turnoPerro = new Turno(miGato.toAnimal()); // ❌ No compila: no existe el método toAnimal() en Gato.
-            // Turno turnoPerro = new Turno((Animal) new Perro()); // ❌ Compila, pero es redundante: el cast es innecesario porque Perro ya es un Animal.
+            // Turno turnoPerro = new Turno((Animal) new Perro());
+             // ❌ Compila, pero es redundante: el cast es innecesario porque Perro ya es un Animal.
 
             Turno turnoGato = new Turno(miGato);
 

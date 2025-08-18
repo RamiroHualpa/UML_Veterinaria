@@ -56,7 +56,10 @@ public class Ejercicio14 {
                 for (Medicamento med : tr.getMedicamentos()) { // ✅ Correcto: getMedicamentos() retorna List<Medicamento>, por lo que el tipo del iterado debe ser Medicamento.
                     // for (med : tr.getMedicamentos()) {      // ❌ No compila: falta el tipo explícito o "var" para inferencia.
                     // for (Object med : tr.getMedicamentos()) { // ❌ El for podría compilar (Object es supertipo), pero la línea siguiente falla: Object no tiene getNombre() → error de compilación.
-                    // for (var med : tr.medicamentos) {       // ❌ No compila: "medicamentos" es privado en TratamientoRealizado; además, acceder a campos directamente rompe el encapsulamiento.
+                    // ❌❌❌
+                    // for (var med : tr.medicamentos) {
+                         // ❌ No compila: "medicamentos" es privado en TratamientoRealizado; además, acceder a campos
+                         // directamente rompe el encapsulamiento.
                     // Línea del campus:
                     // System.out.println("Medicamento: " + med.{4:MCS:=getNombre()~nombre~fetchNombre()~name()});
                     System.out.println("Medicamento: " + med.getNombre()); // ✅ Correcto: se invoca el getter público definido en Medicamento.
