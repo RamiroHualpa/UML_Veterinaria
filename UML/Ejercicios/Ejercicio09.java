@@ -17,7 +17,7 @@ public class Ejercicio09 {
         // public {1:MCS:=abstract String~virtual String~String~final String} getTipoAlimentacion();
         public abstract String getTipoAlimentacion(); // ✅ Correcto: un método abstracto obliga a las subclases a implementarlo. Es lo esperado en este escenario.
         // public virtual String getTipoAlimentacion(); // ❌ No compila: "virtual" no existe en Java (es propio de C#).
-        // public String getTipoAlimentacion();         // ⚠️ Compila, pero sería incorrecto: define un método vacío sin cuerpo en una clase abstracta, rompiendo la intención de polimorfismo. Obliga a dar implementación base, aunque debería ser abstracto.
+        // public String getTipoAlimentacion();         // ❌ Compila, pero sería incorrecto: define un método vacío sin cuerpo en una clase abstracta, rompiendo la intención de polimorfismo. Obliga a dar implementación base, aunque debería ser abstracto.
         // public final String getTipoAlimentacion();   // ❌ Compila, pero es incorrecto: final evita que subclases como Perro lo sobrescriban, contradiciendo el objetivo del ejercicio.
     }
 
@@ -56,7 +56,8 @@ public class Ejercicio09 {
             // Esto debe causar un error de compilación.
             // Línea del campus:
             // Animal a = {4:MCS:=new Animal("Rex")~new Perro("Rex")~p~null};
-            //RESPUESTA CORRECTA    Animal a = new Animal("Rex"); // ❌ Intencionalmente incorrecto: no compila porque Animal es abstracto y no puede instanciarse directamente.
+            // ✅ RESPUESTA CORRECTA
+            // Animal a = new Animal("Rex"); // ❌ Intencionalmente incorrecto: no compila porque Animal es abstracto y no puede instanciarse directamente.
             // Animal a = new Perro("Rex"); // ⚠️ Compila y es válido: pero no cumple con la consigna ("esto debe causar error de compilación").
             // Animal a = p;                // ⚠️ Compila y es válido: asigna la referencia de Perro a una variable de tipo Animal. También rompe la consigna porque no genera error.
             // Animal a = null;             // ⚠️ Compila y es válido: asigna null, pero no genera error de compilación. Tampoco cumple con la consigna.

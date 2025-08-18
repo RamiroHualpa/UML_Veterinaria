@@ -28,10 +28,14 @@ public class Ejercicio17 {
             // Debe respetar el encapsulamiento, tal como se trabaja en la cátedra
             // Línea del campus:
             // return {2:MCS:=Collections.unmodifiableList(this.diagnosticos)~this.diagnosticos~new ArrayList<>(this.diagnosticos)~this.diagnosticos.clone()};
-            return Collections.unmodifiableList(this.diagnosticos); // ✅ Correcto: devuelve lista inmutable, evitando modificaciones externas.
-            // return this.diagnosticos;                // ⚠️ Compila, pero rompe encapsulamiento; el cliente podría modificar la lista directamente.
-            // return new ArrayList<>(this.diagnosticos); // ⚠️ Compila y protege parcialmente; retorna copia, pero permite modificaciones de la copia.
-            // return this.diagnosticos.clone();        // ❌ No compila: List no tiene método clone().
+            return Collections.unmodifiableList(this.diagnosticos);
+            // ✅ Correcto: devuelve lista inmutable, evitando modificaciones externas.
+            // return this.diagnosticos;
+            // ⚠️ Compila, pero rompe encapsulamiento; el cliente podría modificar la lista directamente.
+            // return new ArrayList<>(this.diagnosticos);
+            // ⚠️ Compila y protege parcialmente; retorna copia, pero permite modificaciones de la copia.
+            // return this.diagnosticos.clone();
+            // ❌ No compila: List no tiene método clone().
         }
     }
 
@@ -42,7 +46,8 @@ public class Ejercicio17 {
                 // La siguiente línea debe fallar en tiempo de ejecución.
                 // Línea del campus:
                 // logs.{3:MCS:=add(new Diagnostico("Intento de modificación"))~get(0)~size()~isEmpty()};
-                logs.add(new Diagnostico("Intento de modificación")); // ✅ Correcto: fallará con UnsupportedOperationException, demostrando encapsulamiento.
+                logs.add(new Diagnostico("Intento de modificación"));
+                // ✅ Correcto: fallará con UnsupportedOperationException, demostrando encapsulamiento.
                 // logs.get(0);    // ❌ No provoca excepción; solo obtiene un elemento.
                 // logs.size();    // ❌ No provoca excepción; retorna tamaño.
                 // logs.isEmpty(); // ❌ No provoca excepción; retorna boolean.
@@ -67,7 +72,7 @@ public class Ejercicio17 {
             // f.{4:MCS:=agregarDiagnostico(diag)~getDiagnosticos().add(diag)~diagnosticos.add(diag)~setDiagnosticos(diag)};
             f.agregarDiagnostico(diag); // ✅ Correcto: utiliza el método público y respeta encapsulamiento.
             // f.getDiagnosticos().add(diag); // ⚠️ Compila, pero rompe encapsulamiento; permite modificar la lista interna directamente.
-            // f.diagnosticos.add(diag);      // ❌ No compila: "diagnosticos" es privado.
+            // f.diagnosticos.add(diag);      // ❌❌❌ Mismo problema del ejercicio 14. No compila: "diagnosticos" es privado.
             // f.setDiagnosticos(diag);       // ❌ No compila: método inexistente y tipo incompatible.
         }
     }

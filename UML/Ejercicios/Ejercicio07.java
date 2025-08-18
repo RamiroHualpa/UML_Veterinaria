@@ -46,7 +46,7 @@ public class Ejercicio07 {
             Animal animalDeClinica = nuevoGato; // ✅ Correcto: se asigna la subclase Gato a la superclase Animal.
             // Object o = nuevoGato;            // ❌ Compila, pero perderíamos acceso a getNombre() sin casteo posterior.
             // Animal a = new Animal("temp");   // ❌ No compila: Animal es abstracto, no puede instanciarse.
-            // var a = (Animal) nuevoGato;      // ✅ También correcto, pero `var` no se enseña siempre en introducción.
+            // var a = (Animal) nuevoGato;      // ❌ Falla por el nombre de la variable que se utiliza luego.
 
             System.out.println(animalDeClinica.getNombre() + " registrado.");
 

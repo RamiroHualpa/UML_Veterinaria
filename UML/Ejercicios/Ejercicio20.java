@@ -30,9 +30,9 @@ public class Ejercicio20 {
             // Línea del campus:
             // {2:MCS:=catch (NullPointerException e)~catch (Exception e)~catch (Error e)~catch (RuntimeException e)}
             catch (NullPointerException e) { // ✅ Correcto: captura null en turno o animal.
-                // catch (Exception e)        // ⚠️ Captura más amplio; menos específico que NullPointerException.
-                // catch (Error e)            // ❌ No compila; errores son distintos y no deseados para control normal.
-                // catch (RuntimeException e) // ⚠️ Captura más amplio; NullPointerException es RuntimeException, pero menos específico.
+                // catch (Exception e) {       // ⚠️ Captura más amplio; menos específico que NullPointerException.
+                // catch (Error e) {            // ❌ No compila; errores son distintos y no deseados para control normal.
+                // catch (RuntimeException e) { // ⚠️ Captura más amplio; NullPointerException es RuntimeException, pero menos específico.
                 System.out.println("Error: El turno o el animal es nulo.");
             }
             // Línea del campus:
@@ -51,10 +51,10 @@ public class Ejercicio20 {
             imprimirNombreMascota(turnoValido);
             // Línea del campus:
             // {4:MCS:=turnoInvalido~null~new Turno(new Animal(null))~new Turno()}
-            imprimirNombreMascota(turnoInvalido); // ✅ Correcto: pasa el turno con animal nulo para probar manejo de excepción.
-            // null                         // ❌ No compila: se espera un Turno, no null directamente.
-            // new Turno(new Animal(null))  // ⚠️ Compila, pero dispararía IllegalStateException en getNombre(); es otra prueba.
-            // new Turno()                   // ❌ No compila: constructor por defecto inexistente.
+            //imprimirNombreMascota(turnoInvalido); // ✅ Correcto: pasa el turno con animal nulo para probar manejo de excepción.
+            // null;                         // ❌ No compila: se espera un Turno, no null directamente.
+             new Turno(new Animal(null));  // ⚠️ Compila, pero dispararía IllegalStateException en getNombre(); es otra prueba.
+            // new Turno();                   // ❌ No compila: constructor por defecto inexistente.
         }
     }
 

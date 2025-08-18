@@ -49,9 +49,9 @@ public class Ejercicio19 {
             // Línea del campus:
             // {3:MCS:=catch (FichaInvalidaException e)~catch (Exception e)~except FichaInvalidaException e~when FichaInvalidaException e}
             catch (FichaInvalidaException e) { // ✅ Correcto: coincide con la excepción lanzada por registrarDiagnostico.
-                // catch (Exception e)        // ⚠️ Compila, pero captura todas las excepciones; menos específico.
-                // except FichaInvalidaException e // ❌ No existe en Java; sintaxis incorrecta.
-                // when FichaInvalidaException e   // ❌ No existe en Java; sintaxis incorrecta.
+                // catch (Exception e) {       // ⚠️ Compila, pero captura todas las excepciones; menos específico.
+                // except FichaInvalidaException e { // ❌ No existe en Java; sintaxis incorrecta.
+                // when FichaInvalidaException e {  // ❌ No existe en Java; sintaxis incorrecta.
                 System.out.println("Error al procesar: " + e.getMessage());
             }
         }

@@ -26,7 +26,10 @@ public class Ejercicio16 {
                 // Línea del campus:
                 // return this.telefono.{2:MCS:=getNumero()~numero~fetchNumero()~leerNumero()};
                 return this.telefono.getNumero(); // ✅ Correcto: getNumero() es el getter público (o package-private) definido en Telefono.
-                // return this.telefono.numero;     // ❌ No compila: "numero" es privado en Telefono.
+                // return this.telefono.numero;     // ❌❌❌ No compila: "numero" es privado en Telefono.
+                // Por el mismo inconveniente presentado en el
+                //ejercicio 14, esta respuesta compila correctamente.
+
                 // return this.telefono.fetchNumero(); // ❌ No compila: no existe este método en Telefono.
                 // return this.telefono.leerNumero(); // ❌ No compila: no existe este método en Telefono.
             }
@@ -41,10 +44,7 @@ public class Ejercicio16 {
             this.numero = n;
         }
 
-        String getNumero() { return numero; } // ✅ Correcto: método de acceso al campo privado.
-        // public String numero() { return numero; } // ❌ No existe en el código proporcionado; nombre incorrecto.
-        // String fetchNumero() { return numero; } // ❌ No existe; método inventado.
-        // String leerNumero() { return numero; } // ❌ No existe; método inventado.
+        String getNumero() { return numero; }
     }
 
     public static class SistemaAdministrativo {
@@ -61,7 +61,10 @@ public class Ejercicio16 {
             // System.out.println("Teléfono: " + duenio.{4:MCS:=getNumeroTelefono()~getTelefono().getNumero()~telefono.numero~getTelefono()});
             System.out.println("Teléfono: " + duenio.getNumeroTelefono()); // ✅ Correcto: se invoca método público seguro de Duenio.
             // System.out.println("Teléfono: " + duenio.getTelefono().getNumero()); // ❌ No compila: getTelefono() no existe; teléfono es privado.
-            // System.out.println("Teléfono: " + duenio.telefono.numero);          // ❌ No compila: campos privados inaccesibles directamente.
+            // System.out.println("Teléfono: " + duenio.telefono.numero);          // ❌❌❌ No compila: campos privados inaccesibles directamente.
+            // Por el mismo inconveniente presentado en el
+            //ejercicio 14, esta respuesta compila correctamente.
+
             // System.out.println("Teléfono: " + duenio.getTelefono());            // ❌ No compila: getTelefono() no existe; retorna Telefono, no String.
         }
     }

@@ -37,7 +37,6 @@ public class Ejercicio08 {
             // Línea del campus:
             // this.animales.add({1:MCS:=new Gato()~new Animal()~Gato.class.newInstance()~new Object()});
             this.animales.add(new Gato()); // ✅ Correcto: se instancia directamente un Gato, que hereda de Animal y sobrescribe getDieta().
-
             // this.animales.add(new Animal()); // ❌ No compila: Animal es abstracto, no puede instanciarse directamente.
             // this.animales.add(Gato.class.newInstance()); // ⚠️ Compila con reflexión, pero es mala práctica: newInstance() está deprecado y requiere manejar excepciones checked (IllegalAccessException, InstantiationException).
             // this.animales.add(new Object()); // ❌ No compila: Object no es subtipo de Animal, por lo que no se puede agregar a List<Animal>.
@@ -57,7 +56,9 @@ public class Ejercicio08 {
                 if (animal instanceof Gato) { // ✅ Correcto: verifica si el objeto es instancia de Gato para poder castear.
                     // if (animal esGato) {                 // ❌ No compila: "esGato" no es palabra clave ni método existente.
                     // if (animal is Gato) {                // ❌ No compila: "is" no es operador válido en Java, es propio de otros lenguajes (ej. Kotlin).
-                    // if (Gato.class.isInstance(animal)) { // ⚠️ Compila y es correcto técnicamente, pero menos legible que "instanceof"; usar reflexión en este caso es innecesario.
+                    // if (Gato.class.isInstance(animal)) {
+                         // ⚠️ Compila y es correcto técnicamente, pero menos legible que "instanceof"; usar reflexión
+                         // en este caso es innecesario.
 
                     Gato gato = (Gato) animal;
 

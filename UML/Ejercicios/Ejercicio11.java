@@ -32,13 +32,13 @@ public class Ejercicio11 {
 
         // Línea del campus:
         // {2:MCS:=@Override~@Abstract~@Implements~@Final}
-        @Override
-        public String getEspecialidad() { // ✅ Correcto: sobrescribe el método abstracto definido en Veterinario.
-            return "Medicina General";
-        }
+        @Override                  // ✅ Correcto: sobrescribe el método abstracto definido en Veterinario.
         // @Abstract               // ❌ No compila: no existe esta anotación en Java SE; "abstract" es un modificador, no una anotación.
         // @Implements             // ❌ No compila: anotación inexistente en Java SE; confunde con la palabra clave "implements" para interfaces.
         // @Final                  // ❌ No compila: no existe esta anotación en Java SE; "final" es un modificador, no una anotación.
+        public String getEspecialidad() {
+            return "Medicina General";
+        }
     }
 
     public static class Clinica {
